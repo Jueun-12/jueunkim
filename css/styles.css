@@ -288,6 +288,7 @@ figure {
   object-fit: cover;
   object-position: 42% 50%;
   background: var(--paper-deep);
+  border-radius: 0.35rem;
 }
 
 .portrait::after {
@@ -296,6 +297,7 @@ figure {
   inset: 0;
   pointer-events: none;
   background: linear-gradient(to top, rgba(28, 28, 28, 0.05), transparent 36%);
+  border-radius: 0.35rem;
 }
 
 .intro-body p {
@@ -524,14 +526,17 @@ figure {
 }
 
 .photo-pair {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 0.85fr;
+  gap: 1rem;
+  align-items: end;
   margin: 3rem 0 0;
-  padding-bottom: 3.25rem;
 }
 
-.photo-pair-wide {
-  width: 84%;
-  margin: 0 0 0 auto;
+.photo-pair-wide,
+.photo-pair-inset {
+  width: 100%;
+  margin: 0;
 }
 
 .photo-pair-wide img,
@@ -539,17 +544,7 @@ figure {
   width: 100%;
   height: auto;
   display: block;
-  opacity: 0.92;
-  filter: saturate(0.9) contrast(0.99);
-}
-
-.photo-pair-inset {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 48%;
-  background: var(--paper);
-  padding: 0.45rem 0.45rem 0 0;
+  border-radius: 0.45rem;
 }
 
 /* ----- More about me ----- */
@@ -604,6 +599,7 @@ figure {
   width: 100%;
   display: block;
   object-fit: cover;
+  border-radius: 0.45rem;
 }
 
 .life-photo figcaption {
@@ -619,29 +615,27 @@ figure {
 }
 
 .places-photos {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1.35fr 0.8fr;
+  gap: 1rem;
+  align-items: start;
   max-width: 40rem;
   margin-top: 1.75rem;
-  padding-bottom: 4.5rem;
 }
 
-.places-canada {
-  width: 82%;
-  margin-left: auto;
+.places-canada,
+.places-photo {
+  width: 100%;
+  margin: 0;
+}
+
+.places-photo {
+  margin-top: 2.25rem;
 }
 
 .places-canada img {
   aspect-ratio: 4 / 3;
   object-position: 48% 55%;
-}
-
-.places-photo {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 38%;
-  background: var(--paper);
-  padding: 0.4rem 0.4rem 0 0;
 }
 
 .places-photo img {
@@ -650,36 +644,35 @@ figure {
 }
 
 .puzzle-photos {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
   max-width: 36rem;
-  min-height: 26rem;
   margin: 1.75rem 0 2.4rem;
 }
 
-.photo-boulder {
-  width: 58%;
-  position: relative;
-  z-index: 1;
-}
-
-.photo-boulder img {
-  aspect-ratio: 3 / 4;
-  object-position: 50% 42%;
+.photo-boulder,
+.photo-jj {
+  width: 100%;
+  position: static;
+  transform: none;
 }
 
 .photo-jj {
-  position: absolute;
-  right: 0;
-  top: 16%;
-  z-index: 2;
-  width: 50%;
-  background: var(--paper);
-  padding: 0.4rem 0 0 0.4rem;
-  transform: rotate(1.6deg);
+  margin-top: 1.85rem;
+}
+
+.photo-boulder img,
+.photo-jj img {
+  aspect-ratio: 3 / 4;
+}
+
+.photo-boulder img {
+  object-position: 50% 42%;
 }
 
 .photo-jj img {
-  aspect-ratio: 3 / 4;
   object-position: 50% 26%;
 }
 
@@ -694,16 +687,18 @@ figure {
 }
 
 .naru-stage {
-  position: relative;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1rem;
+  align-items: start;
   max-width: 40rem;
-  min-height: 24rem;
   margin: 0.5rem 0 2.25rem;
 }
 
-.naru-portrait {
-  width: 52%;
-  position: relative;
-  z-index: 1;
+.naru-portrait,
+.naru-move {
+  width: 100%;
+  position: static;
 }
 
 .naru-portrait img {
@@ -712,18 +707,11 @@ figure {
 }
 
 .naru-move {
-  position: absolute;
-  right: 0;
-  bottom: 1.25rem;
-  z-index: 2;
-  width: 54%;
-  background: var(--paper);
-  padding: 0.4rem 0 0 0.4rem;
+  margin-top: 2rem;
 }
 
 .naru-move video {
   aspect-ratio: 4 / 3;
-  background: var(--paper-deep);
 }
 
 .naru-spring {
@@ -734,7 +722,6 @@ figure {
 .naru-spring video {
   width: 100%;
   aspect-ratio: 4 / 5;
-  background: var(--paper-deep);
 }
 
 /* ----- Footer ----- */
@@ -804,64 +791,29 @@ figure {
   }
 
   .photo-pair {
-    padding-bottom: 0;
-  }
-
-  .photo-pair-wide {
-    width: 100%;
-    margin: 0;
-  }
-
-  .photo-pair-inset {
-    position: static;
-    width: 78%;
-    margin-top: 0.85rem;
-    padding: 0;
+    grid-template-columns: 1fr;
   }
 
   .places-photos {
-    padding-bottom: 0;
-  }
-
-  .places-canada {
-    width: 100%;
-    margin: 0;
+    grid-template-columns: 1.2fr 0.8fr;
   }
 
   .places-photo {
-    position: static;
-    width: min(42%, 14rem);
-    margin-top: 0.85rem;
-    padding: 0;
+    margin-top: 1.25rem;
+    width: 100%;
   }
 
   .puzzle-photos {
-    min-height: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 0.85rem;
   }
 
-  .photo-boulder,
-  .photo-jj {
-    position: static;
-    width: 100%;
-    transform: none;
-    padding: 0;
-    background: transparent;
-  }
-
   .naru-stage {
-    min-height: 0;
-    display: grid;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
   }
 
   .naru-portrait,
   .naru-move {
-    position: static;
-    width: min(100%, 24rem);
-    padding: 0;
+    width: 100%;
   }
 }
 
@@ -890,9 +842,5 @@ figure {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .photo-jj {
-    transform: none;
   }
 }
