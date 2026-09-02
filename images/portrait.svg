@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1066" viewBox="0 0 800 1066" role="img" aria-label="Portrait placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%" stop-color="#d7c4b0"/>
+      <stop offset="42%" stop-color="#a07d68"/>
+      <stop offset="100%" stop-color="#5c453a"/>
+    </linearGradient>
+    <radialGradient id="light" cx="48%" cy="22%" r="58%">
+      <stop offset="0%" stop-color="#efe0d0" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#efe0d0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="1066" fill="url(#bg)"/>
+  <rect width="800" height="1066" fill="url(#light)"/>
+</svg>
